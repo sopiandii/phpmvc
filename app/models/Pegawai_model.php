@@ -25,6 +25,7 @@ class Pegawai_model
     return $this->db->single();
   }
 
+
   public function tambahDataPegawai($data)
   {
     $query = "INSERT INTO pegawai 
@@ -41,6 +42,7 @@ class Pegawai_model
     return $this->db->rowCount();
   }
 
+
   public function hapusDataPegawai($id)
   {
     $query = "DELETE FROM pegawai WHERE id = :id";
@@ -48,24 +50,46 @@ class Pegawai_model
     $this->db->bind('id', $id);
     $this->db->execute();
     return $this->db->rowCount();
+  }
 
-    // echo '<script>
-    //     swal({
-    //       title: "Anda yakin akan menghapus data ini?",
-    //       text: "Setelah dihapus, data tidak dapat dikembalikan!",
-    //       icon: "warning",
-    //       buttons: ["Tidak!", "Ya!"],
-    //       dangerMode: true,
-    //     })
-    //     .then((willDelete) => {
-    //       if (willDelete) {
-    //         swal("Data berhasil dihapus!", {
-    //           icon: "success",
-    //         });
-    //       } else {
-    //         swal("Data tidak dihapus!");
-    //       }
-    //     });
-    //   </script>';
+
+  public function ubahDataPegawai($data)
+  {
+    $query = "UPDATE pegawai SET
+                nip = :nip,
+                nama = :nama,
+                pangkat = :pangkat,
+                jabatan = :jabatan
+              WHERE id = :id";
+
+    $this->db->query($query);
+    $this->db->bind('nip', $data['nip']);
+    $this->db->bind('nama', $data['nama']);
+    $this->db->bind('pangkat', $data['pangkat']);
+    $this->db->bind('jabatan', $data['jabatan']);
+    $this->db->bind('id', $data['id']);
+
+    $this->db->execute();
+    return $this->db->rowCount();
   }
 }
+
+// sweetAlert
+  // echo '<script>
+  //     swal({
+  //       title: "Anda yakin akan menghapus data ini?",
+  //       text: "Setelah dihapus, data tidak dapat dikembalikan!",
+  //       icon: "warning",
+  //       buttons: ["Tidak!", "Ya!"],
+  //       dangerMode: true,
+  //     })
+  //     .then((willDelete) => {
+  //       if (willDelete) {
+  //         swal("Data berhasil dihapus!", {
+  //           icon: "success",
+  //         });
+  //       } else {
+  //         swal("Data tidak dihapus!");
+  //       }
+  //     });
+  //   </script>';

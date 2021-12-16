@@ -10,10 +10,11 @@
     <div class="col-lg-6">
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+      <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
         Tambah Data Pegawai
       </button>
       <br><br>
+      <!-- End of Button trigger modal -->
 
       <h3>DAFTAR PEGAWAI</h3>
 
@@ -21,7 +22,9 @@
         <?php foreach ($data['asn'] as $pns) : ?>
           <li class="list-group-item">
             <?= $pns['nama']; ?>
-            <a href="<?= BASEURL; ?>/pegawai/hapus/<?= $pns['id']; ?>" class="badge bg-danger rounded-pill float-end ms-1" style="text-decoration:none">Hapus</a>
+            <a href="<?= BASEURL; ?>/pegawai/hapus/<?= $pns['id']; ?>" class="badge bg-danger rounded-pill float-end ms-1" onclick="return confirm('Hapus data ini?')" style="text-decoration:none">Hapus</a>
+
+            <a href="<?= BASEURL; ?>/pegawai/ubah/<?= $pns['id']; ?>" class="badge bg-success  rounded-pill float-end ms-1 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $pns['id']; ?>" style="text-decoration:none">Ubah</a>
 
             <a href="<?= BASEURL; ?>/pegawai/detail/<?= $pns['id']; ?>" class="badge bg-primary rounded-pill float-end ms-1" style="text-decoration:none">Detail</a>
           </li>
@@ -44,6 +47,7 @@
       <div class="modal-body">
 
         <form action="<?= BASEURL; ?>/pegawai/tambah" method="post" autocomplete="off">
+          <input type="hidden" name="id" id="id">
           <div class="mb-1">
             <label for="nama" class="form-label">Nama Pegawai</label>
             <input type="text" class="form-control" id="nama" name="nama" required>
@@ -51,26 +55,26 @@
 
           <div class="mb-1">
             <label for="nip" class="form-label">NIP</label>
-            <input type="text" class="form-control" id="nip" name="nip" required>
+            <input type="text" class="form-control" id="nip" name="nip" placeholder="Ketikkan NIP tanpa spasi" required>
           </div>
 
           <div class="mb-1">
-            <label for="pangkat">Pangkat, Gol.</label>
+            <label for="pangkat">Pangkat, Gol/Ruang</label>
             <select class="form-select" aria-label="Default select example" id="pangkat" name="pangkat">
-              <option selected>Pilih Pangkat, Gol.</option>
-              <option value="Pengatur Muda, II/a">Pengatur Muda, II/a</option>
-              <option value="Pengatur Muda TK.I, II/b">Pengatur Muda TK.I, II/b</option>
-              <option value="Pengatur, II/c">Pengatur, II/c</option>
-              <option value="Pengatur TK.I, II/d">Pengatur TK.I, II/d</option>
-              <option value="Penata Muda, III/a">Penata Muda, III/a</option>
-              <option value="Penata Muda TK.I, III/b">Penata MudaTK.I, III/b</option>
-              <option value="Penata, III/c">Penata, III/c</option>
-              <option value="Penata TK.I, III/d">Penata TK.I, III/d</option>
-              <option value="Pembina, IV/a">Pembina, IV/a</option>
-              <option value="Pembina TK.I, IV/b">Pembina TK.I, IV/b</option>
-              <option value="Pembina Utama Muda, IV/c">Pembina Utama Muda, IV/c</option>
-              <option value="Pembina Utama Madya, IV/d">Pembina Utama Madya, IV/d</option>
-              <option value="Pembina Utama, IV/e">Pembina Utama, IV/e</option>
+              <option selected>-</option>
+              <option value="PENGATUR MUDA, II/a">PENGATUR MUDA, II/a</option>
+              <option value="PENGATUR MUDA TK.I, II/b">PENGATUR MUDA TK.I, II/b</option>
+              <option value="PENGATUR, II/c">PENGATUR, II/c</option>
+              <option value="PENGATUR TK.I, II/d">PENGATUR TK.I, II/d</option>
+              <option value="PENATA MUDA, III/a">PENATA MUDA, III/a</option>
+              <option value="PENATA MUDA TK.I, III/b">PENATA MUDA TK.I, III/b</option>
+              <option value="PENATA, III/c">PENATA, III/c</option>
+              <option value="PENATA TK.I, III/d">PENATA TK.I, III/d</option>
+              <option value="PEMBINA, IV/a">PEMBINA, IV/a</option>
+              <option value="PEMBINA TK.I, IV/b">PEMBINA TK.I, IV/b</option>
+              <option value="PEMBINA UTAMA MUDA, IV/c">PEMBINA UTAMA MUDA, IV/c</option>
+              <option value="PEMBINA UTAMA MADYA, IV/d">PEMBINA UTAMA MADYA, IV/d</option>
+              <option value="PEMBINA UTAMA, IV/e">PEMBINA UTAMA, IV/e</option>
             </select>
           </div>
 
