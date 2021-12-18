@@ -26,7 +26,9 @@
 
             <a href="<?= BASEURL; ?>/pegawai/ubah/<?= $pns['id']; ?>" class="badge bg-success  rounded-pill float-end ms-1 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $pns['id']; ?>" style="text-decoration:none">Ubah</a>
 
-            <a href="<?= BASEURL; ?>/pegawai/detail/<?= $pns['id']; ?>" class="badge bg-primary rounded-pill float-end ms-1" style="text-decoration:none">Detail</a>
+            <a href="<?= BASEURL; ?>/pegawai/getdetail/<?= $pns['id']; ?>" class="badge bg-primary  rounded-pill float-end ms-1 tampilModalDetail" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $pns['id']; ?>" style="text-decoration:none">Detail</a>
+
+            <!-- <a href="<?= BASEURL; ?>/pegawai/detail/<?= $pns['id']; ?>" class="badge bg-primary rounded-pill float-end ms-1" style="text-decoration:none">Detail</a> -->
           </li>
         <?php endforeach; ?>
       </ul>
@@ -49,17 +51,17 @@
         <form action="<?= BASEURL; ?>/pegawai/tambah" method="post" autocomplete="off">
           <input type="hidden" name="id" id="id">
           <div class="mb-1">
-            <label for="nama" class="form-label">Nama Pegawai</label>
+            <label for="nama" class="form-label" id="labelNama" style="font-weight: bold;">Nama Pegawai</label>
             <input type="text" class="form-control" id="nama" name="nama" required>
           </div>
 
           <div class="mb-1">
-            <label for="nip" class="form-label">NIP</label>
+            <label for="nip" class="form-label" id="labelNip" style="font-weight: bold;">NIP</label>
             <input type="text" class="form-control" id="nip" name="nip" placeholder="Ketikkan NIP tanpa spasi" required>
           </div>
 
           <div class="mb-1">
-            <label for="pangkat">Pangkat, Gol/Ruang</label>
+            <label for="pangkat" id="labelPangkat" style="font-weight: bold;">Pangkat, Gol/Ruang</label>
             <select class="form-select" aria-label="Default select example" id="pangkat" name="pangkat">
               <option selected>-</option>
               <option value="PENGATUR MUDA, II/a">PENGATUR MUDA, II/a</option>
@@ -79,7 +81,7 @@
           </div>
 
           <div class="mb-1">
-            <label for="jabatan" class="form-label">Jabatan</label>
+            <label for="jabatan" class="form-label" id="labelJabatan" style="font-weight: bold;">Jabatan</label>
             <input type="text" class="form-control" id="jabatan" name="jabatan" required>
           </div>
 

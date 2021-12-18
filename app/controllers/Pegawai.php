@@ -62,4 +62,9 @@ class Pegawai extends Controller
       exit;
     }
   }
+
+  public function getdetail()
+  {
+    echo json_encode($this->model('Pegawai_model')->getPegawaiById($_POST['id']));
+  }
 }
