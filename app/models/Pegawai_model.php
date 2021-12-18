@@ -72,6 +72,15 @@ class Pegawai_model
     $this->db->execute();
     return $this->db->rowCount();
   }
+
+  public function cariDataPegawai()
+  {
+    $keyword = $_POST['keyword'];
+    $query = "SELECT * FROM pegawai WHERE nama LIKE :keyword";
+    $this->db->query($query);
+    $this->db->bind('keyword', "%$keyword%");
+    return $this->db->resultSet();
+  }
 }
 
 // sweetAlert

@@ -5,16 +5,28 @@
       <?php Flasher::flash(); ?>
     </div>
   </div>
-
-  <div class="row">
+  <!-- Button trigger modal -->
+  <div class="row mb-3">
     <div class="col-lg-6">
-
-      <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
         Tambah Data Pegawai
       </button>
-      <br><br>
-      <!-- End of Button trigger modal -->
+    </div>
+  </div>
+  <!-- End of Button trigger modal -->
+  <div class="row mb-3">
+    <div class="col-lg-6">
+      <form action="<?= BASEURL; ?>/pegawai/cari" method="POST">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Ketikkan nama pegawai..." name="keyword" id="keyword" autocomplete="off">
+          <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
 
       <h3>DAFTAR PEGAWAI</h3>
 

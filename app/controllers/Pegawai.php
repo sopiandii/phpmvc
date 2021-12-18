@@ -67,4 +67,13 @@ class Pegawai extends Controller
   {
     echo json_encode($this->model('Pegawai_model')->getPegawaiById($_POST['id']));
   }
+
+  public function cari()
+  {
+    $data['judul'] = 'Daftar Pegawai';
+    $data['asn'] = $this->model('Pegawai_model')->cariDataPegawai();
+    $this->view('templates/header', $data);
+    $this->view('pegawai/index', $data);
+    $this->view('templates/footer');
+  }
 }
